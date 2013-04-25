@@ -31,37 +31,53 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
+        <h3>PopCircle.</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Popcircle is a jQuery plugin for customize image gallery, it has the functionality to turn the html image elements into a pop circle.</p>
+
+<h2>features</h2>
+
+<ul>
+<li>can customize the pop circle limits.</li>
+<li>can show the popcircles around the trigger as full circle or half or quarter.</li>
+<li>able to customize animation time and easing functionality</li>
+</ul><h3>For Full Circle</h3>
 
 <pre><code>$.popcircle('#pops',{
                             spacing:'15px',
-                            type:'half', // full, half, quad
-                            offset:1.95,    // 0, 1, 2, 3, 4, 5, 6, 7 or 5.1
+                            type:'full', // full, half, quad
+
                             ease:'easeOutElastic',
                             time:'slow' // slow, fast, 1000
                             }
                    );
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h3>For Half Circle</h3>
 
-<h3>Designer Templates</h3>
+<pre><code>$.popcircle('#pops2',{
+                            spacing:'10px',
+                            type:'half', // full, half, quad
+                            offset:5,   // 0, 1, 2, 3, 4, 5, 6, 7 or 5.1
+                            ease:'easeOutQuad',
+                            time:'fast' // slow, fast, 1000
+                            }
+                   );
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+</code></pre>
 
-<h3>Rather Drive Stick?</h3>
+<h3>For Quarter Circle</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<pre><code>$.popcircle('#pops3',{
+                            spacing:'10px',
+                            type:'quad', // full, half, quad
+                            offset:5,   // 0, 1, 2, 3, 4, 5, 6, 7 or 5.1
+                            ease:'easeOutQuad',
+                            time:'fast' // slow, fast, 1000
+                            }
+                   );
 
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+</code></pre>
       </section>
     </div>
 

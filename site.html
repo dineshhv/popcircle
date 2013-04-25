@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.popcircle.1.0.js"></script>
+<style>
+/*********************************** Page CSS *********************************/
+body{
+font-family:  Arial, Helvetica,sans-serif;
+margin:0; padding: 0px;
+color:#333;
+background-image:url(images/bg.png);
+height: 100%;
+}
+h1,h2,h3,h4{ color:#00ace5; margin-bottom: 5px; }
+.container{ margin:0 auto; width: 1024px; height: auto;}
+.block{ height: 20px; width: 100px; background-color: black;}
+.example{width:1024px; height: 500px;}
+.code{ float:left; width:480px; height: 480px; padding:10px 10px 10px 0px;}
+.feature{ list-style:inside;}
+.tab{ height: 30px; width:100%; margin-top: }
+.tab ul { list-style: none; padding: 0; margin: 0; border-bottom: 1px solid rgba(200,200,200,.5); height: auto; display: inline-block;width:100%;}
+.tab ul li{ float: left; padding:5px 10px; margin-right: 10px;
+background: #00ace5; /* Old browsers */
+background: -moz-linear-gradient(top, #00ace5 0%, #0582ab 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00ace5), color-stop(100%,#0582ab)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #00ace5 0%,#0582ab 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #00ace5 0%,#0582ab 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #00ace5 0%,#0582ab 100%); /* IE10+ */
+background: linear-gradient(to bottom, #00ace5 0%,#0582ab 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ace5', endColorstr='#0582ab',GradientType=0 ); /* IE6-9 */
+-webkit-border-top-left-radius: 5px;
+-webkit-border-top-right-radius: 5px;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-topright: 5px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+}
+.tab ul li a{ text-decoration: none; color: white;}
+.html,.css,.js{ background-color:rgba(255,255,255,.5); width:460px; height: auto; max-height: 380px; padding: 10px;  overflow-x: scroll;}
+.code{ color:#333;  height: auto; font-size: 12px; font-family: Helvetica sans-serif; line-height: 20px; }
+.config_sec{ height: 400px; width:1024px;}
+.config_sec th{ background-color:#00ace5;  height:40px; padding-left:60px;}
+.config_sec .head{-webkit-border-radius: 5px;
+-webkit-border-bottom-left-radius: 0;
+-moz-border-radius: 5px;
+-moz-border-radius-bottomleft: 0;
+border-radius: 5px;
+border-bottom-left-radius: 0;}
+.config_sec .items{ background-color: rgba(255,255,255,.5);  padding: 5px; }
+.config_sec td {height: 60px; min-height: 30px; padding-left:60px; padding-top: 5px; font-family: Helvetica, sans-serif; font-size: 14px; }
+/*********************************** End Page CSS *********************************/
+
+
+/*********************************** PopCircle CSS *********************************/
+.box{ width:500px; height: 500px;  float:left; }
+.trigger{ width:255px; height: 255px; position:absolute; z-index: 10; left:110px; top:110px; background-image:url(images/big_round.png); cursor: pointer;  margin-left: 750px; margin-top: 250px; }
+.trigger2{ width:255px; height: 255px; position: absolute; z-index: 10; left:110px; top:110px; background-image:url(images/big_round.png); cursor: pointer; margin-left: 750px; margin-top: 800px;  }
+.popcircle{ position:relative; z-index: 9; width:500px; height:500px;left:0px; top:0px;}
+.popcircle ul{ list-style:none; padding:0px; margin: 0px; height: auto; cursor: pointer;}
+.popcircle ul li{top: 187.5px; left: 187.5px; height: 100px; width: 100px; position: absolute;}
+
+/*********************************** End PopCircle CSS *********************************/
+
+
+
+</style>
+<script>
+$(document).ready(function(){
+	$('.tab ul li').click(function (e){
+		e.preventDefault();
+		var sec_id=$(this).closest('.code').attr('id');
+		var cut=$('#'+sec_id+' .current').attr('ref');
+		var selected=$(this).attr('ref');
+		$('#'+sec_id+' .link').removeClass('current');
+		$(this).addClass('current');
+		//console.log(cut);
+		$('#'+sec_id+' '+cut).css('display','none');
+		$('#'+sec_id+' '+selected).css('display','block');
+	});
+
+	$('.trigger').click(function(e){
+		e.preventDefault();
+		$.popcircle('#pops',{
+							spacing:'10px',
+							type:'full', // full, half, quad
+							offset:1.95,	// 0, 1, 2, 3, 4, 5, 6, 7 or 5.1
+							ease:'easeOutElastic',
+							time:'slow' // slow, fast, 1000
+							}
+				   );
+	});
+	$('.trigger2').click(function(e){
+		e.preventDefault();
+		$.popcircle('#pops2',{
+							spacing:'10px',
+							type:'half', // full, half, quad
+							offset:5,	// 0, 1, 2, 3, 4, 5, 6, 7 or 5.1
+							ease:'easeOutQuad',
+							time:'fast' // slow, fast, 1000
+							}
+				   );
+	});	
+});
+</script>
+<body>
+<div class="container">
+<h1>PopCircle</h1>
+<p>Popcircle is a jQuery plugin for customize image gallery, it has the functionality to turn the html image elements into a pop circle.</p>
+<h3>Features</h3>
+<ul class="feature">
+	<li>Can customize the pop circle limits.</li>
+	<li>Can show the popcircles around the trigger as full circle or half or quarter.</li>
+	<li>Able to customize animation time and easing functionality</li>
+</ul>
+<h2>Circle around the edges</h2>
+<div class="example">
+	<div class="code" id="full_circle">
+	<div class="tab">
+		<ul>
+			<li class="link current" ref="#html"><a href="" >Html</a></li>
+			<li class="link" ref="#css"><a href="">CSS</a></li>
+			<li class="link"ref="#js"><a href="">jQuery</a></li>
+		</ul>
+	</div>
+	<div class="html" id="html" style="display:block;">
+			<code>
+				&lt;div class=&quot;box&quot;&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;trigger&quot; id=&quot;circle_btn&quot;&gt;&lt;/div&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;popcircle&quot;&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul id=&quot;pops&quot;&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/blue.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/red.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/blue.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/red.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/blue.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+				&lt;/div&gt;<br />
+			</code>
+	
+	</div>
+	<div class="css" id="css" style="display:none;">
+			<code>
+				.box{ <br />&nbsp;&nbsp;&nbsp;&nbsp;width:500px;<br />&nbsp;&nbsp;&nbsp;&nbsp; height: 500px;<br />&nbsp;&nbsp;&nbsp;&nbsp;  float:left;<br /> }<br />
+				.trigger{ <br />&nbsp;&nbsp;&nbsp;&nbsp;width:255px;<br /> &nbsp;&nbsp;&nbsp;&nbsp;height: 255px;<br /> &nbsp;&nbsp;&nbsp;&nbsp;position:absolute;<br /> &nbsp;&nbsp;&nbsp;&nbsp;z-index: 10;<br /> &nbsp;&nbsp;&nbsp;&nbsp;left:110px;<br /> &nbsp;&nbsp;&nbsp;&nbsp;top:110px;<br />&nbsp;&nbsp;&nbsp;&nbsp; background-image:url(images/big_round.png); cursor: pointer;<br />&nbsp;&nbsp;&nbsp;&nbsp;  margin-left: 750px;<br />&nbsp;&nbsp;&nbsp;&nbsp; margin-top: 250px;<br /> }<br />
+				<br />
+				.popcircle{ <br />&nbsp;&nbsp;&nbsp;&nbsp; position:relative;<br />&nbsp;&nbsp;&nbsp;&nbsp; z-index: 9;<br />&nbsp;&nbsp;&nbsp;&nbsp; width:500px;<br />&nbsp;&nbsp;&nbsp;&nbsp; height:500px;<br />&nbsp;&nbsp;&nbsp;&nbsp; left:0px;<br />&nbsp;&nbsp;&nbsp;&nbsp; top:0px;<br />}<br />
+				.popcircle ul{<br />&nbsp;&nbsp;&nbsp;&nbsp; list-style:none;<br />&nbsp;&nbsp;&nbsp;&nbsp; padding:0px;<br />&nbsp;&nbsp;&nbsp;&nbsp; margin: 0px;<br />&nbsp;&nbsp;&nbsp;&nbsp; height: auto;<br />&nbsp;&nbsp;&nbsp;&nbsp; cursor: pointer;<br />}<br />
+				.popcircle ul li{<br />&nbsp;&nbsp;&nbsp;&nbsp; top: 187.5px;<br />&nbsp;&nbsp;&nbsp;&nbsp; left: 187.5px;<br />&nbsp;&nbsp;&nbsp;&nbsp; height: 100px;<br />&nbsp;&nbsp;&nbsp;&nbsp; width: 100px;<br />&nbsp;&nbsp;&nbsp;&nbsp; position: absolute;<br />}
+			</code>
+	</div>
+	<div class="js" id="js" style="display:none;">
+			<code>
+				$('.trigger').click(function(e){
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;e.preventDefault();
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;$.popcircle('#pops',
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spacing:'10px',
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:'full', // full, half, quad
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset:1.95,	// 0, 1, 2, 3, 4, 5, 6, 7 or 5.1
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ease:'easeOutElastic',
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:'slow' // slow, fast, 1000
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;);
+				<br />});
+			</code>	
+	</div>
+	<blockquote>
+		Please note: CSS script give above is just for a reference. Inorder to match with your UI requirements, you may need to change the css scripts.  
+	</blockquote>
+	</div>
+	<div class="box">
+		<div class="trigger" id="circle_btn"></div>
+		<div class="popcircle">
+			<ul id="pops">
+				<li><a href=""><img src="images/blue.png"></a></li>
+				<li><a href=""><img src="images/red.png"></a></li>
+				<li><a href=""><img src="images/blue.png"></a></li>
+				<li><a href=""><img src="images/red.png"></a></li>
+				<li><a href=""><img src="images/blue.png"></a></li>
+				
+	
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<h2>circle around half </h2>	
+<div class="example">
+	<div class="code" id="half_circle">
+	<div class="tab">
+		<ul>
+			<li class="link current" ref="#html"><a href="" >Html</a></li>
+			<li class="link" ref="#css"><a href="">CSS</a></li>
+			<li class="link" ref="#js"><a href="">jQuery</a></li>
+		</ul>
+	</div>
+	<div class="html" id="html" style="display:block;">
+			<code>
+				&lt;div class=&quot;box&quot;&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;trigger2&quot; id=&quot;circle_btn2&quot;&gt;&lt;/div&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;popcircle&quot;&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul id=&quot;pops2&quot;&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/blue.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/red.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/blue.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/red.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/blue.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+				&lt;/div&gt;<br />
+				
+			</code>
+	
+	</div>
+	<div class="css" id="css" style="display:none;">
+			<code>
+				.box{ <br />&nbsp;&nbsp;&nbsp;&nbsp;width:500px;<br />&nbsp;&nbsp;&nbsp;&nbsp; height: 500px;<br />&nbsp;&nbsp;&nbsp;&nbsp;  float:left;<br /> }<br />
+				.trigger2{<br />&nbsp;&nbsp;&nbsp;&nbsp; width:255px;<br />&nbsp;&nbsp;&nbsp;&nbsp; height: 255px;<br />&nbsp;&nbsp;&nbsp;&nbsp; position: absolute;<br />&nbsp;&nbsp;&nbsp;&nbsp; z-index: 10;<br />&nbsp;&nbsp;&nbsp;&nbsp; left:110px;<br />&nbsp;&nbsp;&nbsp;&nbsp; top:110px;<br />&nbsp;&nbsp;&nbsp;&nbsp; background-image:url(images/big_round.png);<br />&nbsp;&nbsp;&nbsp;&nbsp; cursor: pointer;<br /> }<br />
+				.popcircle{ <br />&nbsp;&nbsp;&nbsp;&nbsp; position:relative;<br />&nbsp;&nbsp;&nbsp;&nbsp; z-index: 9;<br />&nbsp;&nbsp;&nbsp;&nbsp; width:500px;<br />&nbsp;&nbsp;&nbsp;&nbsp; height:500px;<br />&nbsp;&nbsp;&nbsp;&nbsp; left:0px;<br />&nbsp;&nbsp;&nbsp;&nbsp; top:0px;<br />}<br />
+				.popcircle ul{<br />&nbsp;&nbsp;&nbsp;&nbsp; list-style:none;<br />&nbsp;&nbsp;&nbsp;&nbsp; padding:0px;<br />&nbsp;&nbsp;&nbsp;&nbsp; margin: 0px;<br />&nbsp;&nbsp;&nbsp;&nbsp; height: auto;<br />&nbsp;&nbsp;&nbsp;&nbsp; cursor: pointer;<br />}<br />
+				.popcircle ul li{<br />&nbsp;&nbsp;&nbsp;&nbsp; top: 187.5px;<br />&nbsp;&nbsp;&nbsp;&nbsp; left: 187.5px;<br />&nbsp;&nbsp;&nbsp;&nbsp; height: 100px;<br />&nbsp;&nbsp;&nbsp;&nbsp; width: 100px;<br />&nbsp;&nbsp;&nbsp;&nbsp; position: absolute;<br />}
+			</code>
+	</div>
+	<div class="js" id="js" style="display:none;">
+			<code>
+				$('.trigger2').click(function(e){
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;e.preventDefault();
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;$.popcircle('#pops2',
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spacing:'10px',
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:'half', // full, half, quad
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset:5,	// 0, 1, 2, 3, 4, 5, 6, 7 or 5.1
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ease:'easeOutQuad',
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:'fast' // slow, fast, 1000
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;);
+				<br />});
+			</code>	
+	</div>
+	<blockquote>
+		Please note: CSS script give above is just for a reference. Inorder to match with your UI requirements, you may need to change the css scripts.  
+	</blockquote>
+	</div>
+	
+	<div class="box">
+		<div class="trigger2" id="circle_btn2"></div>
+		<div class="popcircle">
+			<ul id="pops2">
+				<li><a href=""><img src="images/blue.png"></a></li>
+				<li><a href=""><img src="images/red.png"></a></li>
+				<li><a href=""><img src="images/blue.png"></a></li>
+				<li><a href=""><img src="images/red.png"></a></li>
+				<li><a href=""><img src="images/blue.png"></a></li>
+				
+	
+			</ul>
+		</div>
+	</div>
+	</div>
+	
+<h2>Config</h2>
+<div class="config_sec">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	  <tr class="head">
+	    <th scope="col" width="10%">Config</th>
+	    <th scope="col" width="80%">Description</th>
+	  </tr>
+	  <tr class="items">
+	    <td>spacing
+	    </td>
+	    <td>Increase the space between the trigger and pop circles. Spacing item will accept <em>'pixel'</em> values <br />
+		    usage { spacing:'10px' }</td>
+	  </tr>
+	  <tr class="items">
+	    <td>type</td>
+	    <td>Pop up patter can be modified using this parameter. 'type' will accept any of this three parameters - <em>'full', 'half', 'quad'</em> <br />
+		   usage { type:'full' }</td>
+	  </tr>
+	  <tr class="items">
+	    <td>offset</td>
+	    <td>Pop up starting point can be determined using this parameter, this parameter will accept <em>integer</em> or <em>float</em> values<br /><img src="images/circle.png"></td>
+	  </tr>
+	  <tr class="items">
+	    <td>ease</td>
+	    <td>&nbsp;</td>
+	  </tr>
+	  <tr class="items">
+	    <td>time</td>
+	    <td>&nbsp;</td>
+	  </tr>
+	</table>
+</div>
+</div>
+
+
+<div class="footer">
+	
+</div>
+
+</div>
+</body>
+</html>
+

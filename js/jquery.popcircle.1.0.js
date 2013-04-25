@@ -1,8 +1,7 @@
+
 (function($){
     $.popcircle = function(selector, settings){
        var config = {
-	        //'top': '100px',
-	        //'left': '100px',
 	        'spacing':'10px',
 	        'count':5,
 	        'type':'full',
@@ -38,8 +37,8 @@
 	        			   	
 							var cnt=360/count;
 			        		var rd=((cnt * (Math.PI/180))*key);
-			        		var x=parseInt(con_left)+(197.5*Math.cos(rd));
-			        		var y=parseInt(con_top)+(197.5*Math.sin(rd));
+			        		var x=parseInt(con_left)+((parseInt(con_left)+spacing)*Math.cos(rd));
+			        		var y=parseInt(con_top)+((parseInt(con_top)+spacing)*Math.sin(rd));
 							
 			        	
                     break;
@@ -56,8 +55,8 @@
                     		var cnt=90/count;
 			        		
 			        		var rd=((cnt * (Math.PI/180))*key)+config.offset;
-			        		var x=parseInt(con_left)+(197.5*Math.cos(rd));
-			        		var y=parseInt(con_top)+(197.5*Math.sin(rd));
+			        		var x=parseInt(con_left)+((parseInt(con_left)+spacing)*Math.cos(rd));
+			        		var y=parseInt(con_top)+((parseInt(con_top)+spacing)*Math.sin(rd));
 							
                     break;
         		}
@@ -72,8 +71,6 @@
 		  
 		});
 		return this;
-	    /*return this.each(function(){
-	        $(this).css('color', config.color);
-	    });*/
+	    
     };
 })(jQuery);

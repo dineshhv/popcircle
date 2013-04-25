@@ -17,14 +17,14 @@ background-image:url(images/bg.png);
 height: 100%;
 }
 h1,h2,h3,h4{ color:#00ace5; margin-bottom: 5px; }
-.container{ margin:0 auto; width: 1024px; height:2100px;}
+.container{ margin:80px auto 0px; width: 1024px; height:2100px;}
 .block{ height: 20px; width: 100px; background-color: black;}
 .example{width:1024px; height: 500px;}
 .code{ float:left; width:480px; height: 480px; padding:10px 10px 10px 0px;}
 .feature{ list-style:inside;}
 .tab{ height: 30px; width:100%; margin-top: }
 .tab ul { list-style: none; padding: 0; margin: 0; border-bottom: 1px solid rgba(200,200,200,.5); height: auto; display: inline-block;width:100%;}
-.tab ul li{ float: left; padding:5px 10px; margin-right: 10px;
+.tab ul li{ float: left;  margin-right: 5px; 
 background: #00ace5; /* Old browsers */
 background: -moz-linear-gradient(top, #00ace5 0%, #0582ab 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00ace5), color-stop(100%,#0582ab)); /* Chrome,Safari4+ */
@@ -39,8 +39,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ace5', end
 -moz-border-radius-topright: 5px;
 border-top-left-radius: 5px;
 border-top-right-radius: 5px;
+
 }
-.tab ul li a{ text-decoration: none; color: white;}
+.tab ul li a{ text-decoration: none; color: white; padding:5px 20px; display: block;}
 .html,.css,.js{ background-color:rgba(255,255,255,.5); width:460px; height: auto; max-height: 380px; padding: 10px;  overflow-x: scroll;}
 .code{ color:#333;  height: auto; font-size: 12px; font-family: Helvetica sans-serif; line-height: 20px; }
 .config_sec{ height: 400px; width:1024px;}
@@ -55,18 +56,38 @@ border-bottom-left-radius: 0;}
 .odd {background-color: rgba(255,255,255,.5); }
 .eve { background-color: rgba(225,225,225,.5); }
 .config_sec td {height:120px; min-height: 50px; padding-left:60px; padding-top: 5px; font-family: Helvetica, sans-serif; font-size: 14px; }
-.desctext{ width:70%; float:left; padding-top: 20px;}
+.desctext{ width:70%; float:left; padding-top: 20px; }
 .descimg{ width: 30%; float: left;}
-.header{height: 100px;  width: 100%;}
-.footer{ height: 200px; width: 100%; background-color: #222;}
+.header{height: 60px;  width: 100%; min-width: 1024px;  background-color: #eee; position: fixed; z-index: 15; top:0px;}
+.footer{ height: 200px; width: 100%; min-width: 1024px;  background-color: #222;}
+.logo{margin-left: 20px; background-image: url(images/logo.png); width:168px; height: 60px;}
+.menu{ position: absolute; margin-left: 15%; margin-top: -50px; }
+.download{position: absolute; margin-left:55%; margin-top: -60px;}
+.download ul{ list-style: none;}
+.download ul li{float: left; margin-right: 20px; background: #00ace5; /* Old browsers */
+background: -moz-linear-gradient(top, #00ace5 0%, #0582ab 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00ace5), color-stop(100%,#0582ab)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #00ace5 0%,#0582ab 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #00ace5 0%,#0582ab 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #00ace5 0%,#0582ab 100%); /* IE10+ */
+background: linear-gradient(to bottom, #00ace5 0%,#0582ab 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ace5', endColorstr='#0582ab',GradientType=0 ); /* IE6-9 */
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+}
+.download ul li a{padding: 10px 30px; text-decoration: none; color: #fff; display: block; font-size: 14px;}
+.menu ul { list-style: none; height: 30px; margin-top: 10px;}
+.menu ul li{ float: left; margin-left: 10px;}
+.menu ul li a{ padding: 5px 20px; text-decoration: none; color: #00ace5; display: block; }
 /*********************************** End Page CSS *********************************/
 
 
 /*********************************** PopCircle CSS *********************************/
 .box{ width:500px; height: 500px;  float:left; }
-.trigger{ width:255px; height: 255px; position:absolute; z-index: 10; left:110px; top:110px; background-image:url(images/big_round.png); cursor: pointer;  margin-left: 750px; margin-top: 350px; }
-.trigger2{ width:255px; height: 255px; position: absolute; z-index: 10; left:110px; top:110px; background-image:url(images/big_round.png); cursor: pointer; margin-left: 750px; margin-top: 900px;  }
-.popcircle{ position:relative; z-index: 9; width:500px; height:500px;left:0px; top:0px;}
+.trigger{ width:255px; height: 255px; position:relative; z-index: 10; left:110px; top:110px; background-image:url(images/big_round.png); cursor: pointer; }
+.trigger2{ width:255px; height: 255px; position: relative; z-index: 10; left:110px; top:110px; background-image:url(images/big_round.png); cursor: pointer; }
+.popcircle{ position:relative; z-index: 9; width:500px; height:500px;left:0px; top:-250px;}
 .popcircle ul{ list-style:none; padding:0px; margin: 0px; height: auto; cursor: pointer;}
 .popcircle ul li{top: 187.5px; left: 187.5px; height: 100px; width: 100px; position: absolute;}
 
@@ -114,8 +135,25 @@ $(document).ready(function(){
 });
 </script>
 <body>
-<div class="header"></div>
+<div class="header">
+	<div class="logo"></div>
+	<div class="menu">
+		<ul>
+		<li><a href="#feature">Feature</a></li>
+		<li><a href="">Installation</a></li>
+		<li><a href="#examples">Examples</a></li>
+		<li><a href="#config">Config</a></li>
+		</ul>
+	</div>
+	<div class="download">
+		<ul>
+		<li><a href="">download from GitHub</a></li>
+		<li><a href="">jQuery.popcircle.1.0.js</a></li>
+		</ul>
+	</div>
+</div>
 <div class="container">
+<div id="feature"></div>
 <h2>PopCircle</h2>
 <p>Popcircle is a jQuery plugin for customize image gallery, it has the functionality to turn the html image elements into a pop circle.</p>
 <h3>Features</h3>
@@ -125,7 +163,8 @@ $(document).ready(function(){
 	<li>Able to customize animation time and easing functionality</li>
 </ul>
 <h2>Circle around the edges</h2>
-<div class="example">
+
+<div class="example" id="examples">
 	<div class="code" id="full_circle">
 	<div class="tab">
 		<ul>
@@ -271,7 +310,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 	</div>
-	
+<div id="config"></div>	
 <h2>Config</h2>
 <div class="config_sec">
 	<table width="1024px" border="0" cellspacing="0" cellpadding="0">

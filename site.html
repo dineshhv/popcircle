@@ -17,7 +17,7 @@ background-image:url(images/bg.png);
 height: 100%;
 }
 h1,h2,h3,h4{ color:#00ace5; margin-bottom: 5px; }
-.container{ margin:0 auto; width: 1024px; height: auto;}
+.container{ margin:0 auto; width: 1024px; height:2100px;}
 .block{ height: 20px; width: 100px; background-color: black;}
 .example{width:1024px; height: 500px;}
 .code{ float:left; width:480px; height: 480px; padding:10px 10px 10px 0px;}
@@ -51,15 +51,21 @@ border-top-right-radius: 5px;
 -moz-border-radius-bottomleft: 0;
 border-radius: 5px;
 border-bottom-left-radius: 0;}
-.config_sec .items{ background-color: rgba(255,255,255,.5);  padding: 5px; }
-.config_sec td {height: 60px; min-height: 30px; padding-left:60px; padding-top: 5px; font-family: Helvetica, sans-serif; font-size: 14px; }
+.config_sec .items{  padding: 5px; }
+.odd {background-color: rgba(255,255,255,.5); }
+.eve { background-color: rgba(225,225,225,.5); }
+.config_sec td {height:120px; min-height: 50px; padding-left:60px; padding-top: 5px; font-family: Helvetica, sans-serif; font-size: 14px; }
+.desctext{ width:70%; float:left; padding-top: 20px;}
+.descimg{ width: 30%; float: left;}
+.header{height: 100px;  width: 100%;}
+.footer{ height: 200px; width: 100%; background-color: #222;}
 /*********************************** End Page CSS *********************************/
 
 
 /*********************************** PopCircle CSS *********************************/
 .box{ width:500px; height: 500px;  float:left; }
-.trigger{ width:255px; height: 255px; position:absolute; z-index: 10; left:110px; top:110px; background-image:url(images/big_round.png); cursor: pointer;  margin-left: 750px; margin-top: 250px; }
-.trigger2{ width:255px; height: 255px; position: absolute; z-index: 10; left:110px; top:110px; background-image:url(images/big_round.png); cursor: pointer; margin-left: 750px; margin-top: 800px;  }
+.trigger{ width:255px; height: 255px; position:absolute; z-index: 10; left:110px; top:110px; background-image:url(images/big_round.png); cursor: pointer;  margin-left: 750px; margin-top: 350px; }
+.trigger2{ width:255px; height: 255px; position: absolute; z-index: 10; left:110px; top:110px; background-image:url(images/big_round.png); cursor: pointer; margin-left: 750px; margin-top: 900px;  }
 .popcircle{ position:relative; z-index: 9; width:500px; height:500px;left:0px; top:0px;}
 .popcircle ul{ list-style:none; padding:0px; margin: 0px; height: auto; cursor: pointer;}
 .popcircle ul li{top: 187.5px; left: 187.5px; height: 100px; width: 100px; position: absolute;}
@@ -108,8 +114,9 @@ $(document).ready(function(){
 });
 </script>
 <body>
+<div class="header"></div>
 <div class="container">
-<h1>PopCircle</h1>
+<h2>PopCircle</h2>
 <p>Popcircle is a jQuery plugin for customize image gallery, it has the functionality to turn the html image elements into a pop circle.</p>
 <h3>Features</h3>
 <ul class="feature">
@@ -267,43 +274,46 @@ $(document).ready(function(){
 	
 <h2>Config</h2>
 <div class="config_sec">
-	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<table width="1024px" border="0" cellspacing="0" cellpadding="0">
 	  <tr class="head">
 	    <th scope="col" width="10%">Config</th>
 	    <th scope="col" width="80%">Description</th>
 	  </tr>
-	  <tr class="items">
+	  <tr class="items odd">
 	    <td>spacing
 	    </td>
-	    <td>Increase the space between the trigger and pop circles. Spacing item will accept <em>'pixel'</em> values <br />
+	    <td>Increase the space between the trigger and pop circles. Spacing item will accept <em>'pixel'</em> values <br /><br />
 		    usage { spacing:'10px' }</td>
 	  </tr>
-	  <tr class="items">
+	  <tr class="items even">
 	    <td>type</td>
-	    <td>Pop up patter can be modified using this parameter. 'type' will accept any of this three parameters - <em>'full', 'half', 'quad'</em> <br />
+	    <td>Pop up patter can be modified using this parameter. 'type' will accept any of this three parameters - <em>'full', 'half', 'quad'</em> <br /><br />
 		   usage { type:'full' }</td>
 	  </tr>
-	  <tr class="items">
+	  <tr class="items odd">
 	    <td>offset</td>
-	    <td>Pop up starting point can be determined using this parameter, this parameter will accept <em>integer</em> or <em>float</em> values<br /><img src="images/circle.png"></td>
+	    <td><div class="desctext">Pop up starting point can be determined using this parameter, offset parameter will accept <em>integer</em> or <em>float</em> values <br /><br />usage { offset:2 }</div><div class="descimg"><img src="images/circle.png"></div></td>
 	  </tr>
-	  <tr class="items">
+	  <tr class="items eve">
 	    <td>ease</td>
-	    <td>&nbsp;</td>
+	    <td>ease parameter is to determine the animation type. here the list of animation types
+	    <br /> <em>'easeInQuad','easeOutQuad','easeInOutQuad','easeInCubic','easeOutCubic','easeInOutCubic','easeInQuart','easeOutQuart',<br />'easeInOutQuart','easeInQuint','easeOutQuint','easeInOutQuint','easeInSine','easeOutSine','easeInOutSine',<br />'easeInExpo','easeOutExpo','easeInOutExpo','easeInCirc','easeOutCirc','easeInOutCirc','easeInElastic','easeOutElastic',<br />'easeInOutElastic','easeInBack','easeOutBack','easeInOutBack','easeInBounce','easeOutBounce','easeInOutBounce'</em><br /><br />usage { ease:'easeOutExpo' }
+	    </td>
 	  </tr>
-	  <tr class="items">
+	  <tr class="items odd">
 	    <td>time</td>
-	    <td>&nbsp;</td>
-	  </tr>
+	    <td>time parameter is to determine the speed of the animation, paramete will accept 'fast', 'slow' or millseconds <br /><br />usage {time:'fast' } or {time:1000 }</td>
+	  </tr> 
 	</table>
 </div>
 </div>
 
 
-<div class="footer">
-	
+
 </div>
 
+<div class="footer">
+	
 </div>
 </body>
 </html>

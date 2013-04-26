@@ -7,6 +7,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
 <script src="js/jquery.popcircle.1.0.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40460831-1', 'vinmein.com');
+  ga('send', 'pageview');
+
+</script>
 <style>
 /*********************************** Page CSS *********************************/
 body{
@@ -17,7 +27,7 @@ background-image:url(images/bg.png);
 height: 100%;
 }
 h1,h2,h3,h4{ color:#00ace5; margin-bottom: 5px; }
-.container{ margin:80px auto 0px; width: 1024px; height:2100px;}
+.container{ margin:80px auto 0px; width: 1024px; height:2900px;}
 .block{ height: 20px; width: 100px; background-color: black;}
 .example{width:1024px; height: 500px;}
 .code{ float:left; width:480px; height: 480px; padding:10px 10px 10px 0px;}
@@ -42,7 +52,7 @@ border-top-right-radius: 5px;
 
 }
 .tab ul li a{ text-decoration: none; color: white; padding:5px 20px; display: block;}
-.html,.css,.js{ background-color:rgba(255,255,255,.5); width:460px; height: auto; max-height: 380px; padding: 10px;  overflow-x: scroll;}
+.html,.css,.js{ background-color:rgba(255,255,255,.5); width:460px; height: auto; max-height: 380px; padding: 10px;  overflow-x: auto;}
 .code{ color:#333;  height: auto; font-size: 12px; font-family: Helvetica sans-serif; line-height: 20px; }
 .config_sec{ height: 400px; width:1024px;}
 .config_sec th{ background-color:#00ace5;  height:40px; padding-left:60px;}
@@ -80,6 +90,10 @@ border-radius: 6px;
 .menu ul { list-style: none; height: 30px; margin-top: 10px;}
 .menu ul li{ float: left; margin-left: 10px;}
 .menu ul li a{ padding: 5px 20px; text-decoration: none; color: #00ace5; display: block; }
+.installation{ height: 800px; width: 100%;}
+.installation ul{ list-style: none;}
+blockquote{ margin:5px 0px 0px; background-color: #eee; padding: 15px; max-height: 100px; overflow-y: auto;}
+
 /*********************************** End Page CSS *********************************/
 
 
@@ -162,6 +176,77 @@ $(document).ready(function(){
 	<li>Can show the popcircles around the trigger as full circle or half or quarter.</li>
 	<li>Able to customize animation time and easing functionality</li>
 </ul>
+
+<div class="installation">
+	<h3>Installation</h3>
+	<ul>
+		<li><h4>step 1</h4>
+			Include the jquery, easing and popcircle js files in the HTML document<br />
+			<blockquote>
+				
+				<code>
+				&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js&quot;&gt;&lt;/script&gt;<br />
+				&lt;script src=&quot;js/jquery.easing.1.3.js&quot;&gt;&lt;/script&gt;<br />
+				&lt;script src=&quot;js/jquery.popcircle.1.0.js&quot;&gt;&lt;/script&gt;<br />
+				</code>
+			</blockquote>
+		</li>
+		<li><h4>step 2</h4>
+			Add the jquery script<br />
+			<blockquote>
+				
+				<code>
+				$('.trigger').click(function(e){
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;e.preventDefault();
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;$.popcircle('#pops',
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;spacing:'10px',
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type:'full', // full, half, quad
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;offset:1.95,	// 0, 1, 2, 3, 4, 5, 6, 7 or 5.1
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ease:'easeOutElastic',
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:'slow' // slow, fast, 1000
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+				<br />&nbsp;&nbsp;&nbsp;&nbsp;);
+				<br />});
+				</code>
+			</blockquote>
+		</li>
+		<li><h4>step 3</h4>
+			Add the css style<br />
+			<blockquote>
+				
+				<code>
+				.box{ <br />&nbsp;&nbsp;&nbsp;&nbsp;width:500px;<br />&nbsp;&nbsp;&nbsp;&nbsp; height: 500px;<br />&nbsp;&nbsp;&nbsp;&nbsp;  float:left;<br /> }<br />
+				.trigger{ <br />&nbsp;&nbsp;&nbsp;&nbsp;width:255px;<br /> &nbsp;&nbsp;&nbsp;&nbsp;height: 255px;<br /> &nbsp;&nbsp;&nbsp;&nbsp;position:relative;<br /> &nbsp;&nbsp;&nbsp;&nbsp;z-index: 10;<br /> &nbsp;&nbsp;&nbsp;&nbsp;left:110px;<br /> &nbsp;&nbsp;&nbsp;&nbsp;top:110px;<br />&nbsp;&nbsp;&nbsp;&nbsp; background-image:url(images/big_round.png); cursor: pointer;<br /> }<br />
+				<br />
+				.popcircle{ <br />&nbsp;&nbsp;&nbsp;&nbsp; position:relative;<br />&nbsp;&nbsp;&nbsp;&nbsp; z-index: 9;<br />&nbsp;&nbsp;&nbsp;&nbsp; width:500px;<br />&nbsp;&nbsp;&nbsp;&nbsp; height:500px;<br />&nbsp;&nbsp;&nbsp;&nbsp; left:0px;<br />&nbsp;&nbsp;&nbsp;&nbsp; top:-250px;<br />}<br />
+				.popcircle ul{<br />&nbsp;&nbsp;&nbsp;&nbsp; list-style:none;<br />&nbsp;&nbsp;&nbsp;&nbsp; padding:0px;<br />&nbsp;&nbsp;&nbsp;&nbsp; margin: 0px;<br />&nbsp;&nbsp;&nbsp;&nbsp; height: auto;<br />&nbsp;&nbsp;&nbsp;&nbsp; cursor: pointer;<br />}<br />
+				.popcircle ul li{<br />&nbsp;&nbsp;&nbsp;&nbsp; top: 187.5px;<br />&nbsp;&nbsp;&nbsp;&nbsp; left: 187.5px;<br />&nbsp;&nbsp;&nbsp;&nbsp; height: 100px;<br />&nbsp;&nbsp;&nbsp;&nbsp; width: 100px;<br />&nbsp;&nbsp;&nbsp;&nbsp; position: absolute;<br />}
+				</code>
+			</blockquote>
+		</li>
+		<li><h4>step 4</h4>
+			Add the html elements<br />
+			<blockquote>
+				
+				<code>
+				&lt;div class=&quot;box&quot;&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;trigger&quot; id=&quot;circle_btn&quot;&gt;&lt;/div&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;popcircle&quot;&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul id=&quot;pops&quot;&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/blue.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/red.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/blue.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/red.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;img src=&quot;images/blue.png&quot;&gt;&lt;/a&gt;&lt;/li&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+				&lt;/div&gt;<br />
+				</code>
+			</blockquote>
+		</li>
+	</ul>	
+</div>
 <h2>Circle around the edges</h2>
 
 <div class="example" id="examples">
@@ -247,6 +332,8 @@ $(document).ready(function(){
 			<li class="link" ref="#js"><a href="">jQuery</a></li>
 		</ul>
 	</div>
+	
+	
 	<div class="html" id="html" style="display:block;">
 			<code>
 				&lt;div class=&quot;box&quot;&gt;<br />

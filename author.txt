@@ -1,0 +1,2 @@
+Author: Dinesh Vadivel
+Plugin: jquery.popcircle.1.0.js

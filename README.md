@@ -1,10 +1,10 @@
 ### PopCircle.
-Popcircle is a jQuery plugin for customize image gallery, it has the functionality to turn the html image elements into a pop circle.
+Pop Circle is a Florid Jquery Plugin for Customize Image Gallery to turn the Html image element into a Pop Circle..
 
 ##features
-* can customize the pop circle limits.
-* can show the popcircles around the trigger as full circle or half or quarter.
-* able to customize animation time and easing functionality
+* Can customize the pop circle limits based on your needs.
+* Can Show the Popcircle around the trigger as full circle, half circle or quarter Circle.
+* Easy to customize animation time and easing functionality
 
 ### For Full Circle
 

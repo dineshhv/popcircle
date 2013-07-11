@@ -1,0 +1,36 @@
+{
+    "name": "popcircle",
+    "title": "jQuery popcircle",
+    "description": "Pop Circle is a Florid Jquery Plugin for Customize Image Gallery to turn the Html image element into a Pop Circle.",
+    "keywords": [
+        "circle",
+        "animation",
+        "popping",
+        "menu"
+    ],
+    "version": "1.0.0",
+    "author": {
+        "name": "Dinesh Vadivel",
+        "url": "https://github.com/dineshhv/popcircle/blob/master/author.txt"
+    },
+    "maintainers": [
+        {
+            "name": "dinesh",
+            "email": "dhuvarak12@gmail.com",
+            "url": "http://popcircle.vinmein.com"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/dineshhv/popcircle/blob/master/MIT-LICENSE.txt"
+        }
+    ],
+    "bugs": "https://github.com/dineshhv/popcircle/issues",
+    "homepage": "https://github.com/dineshhv/popcircle",
+    "docs": "https://github.com/dineshhv/popcircle",
+    "download": "https://github.com/dineshhv/popcircle/archive/master.zip",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}

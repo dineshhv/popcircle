@@ -1,0 +1,7 @@
+{
+  "name": "popcircle",
+  "version": "1.0.0",
+  "main": "js/jquery.popcircle.1.0.js",
+  "description": "Pop Circle is a Florid Jquery Plugin for Customize Image Gallery to turn the Html image element into a Pop Circle.",
+  "license": "MIT"
+}
